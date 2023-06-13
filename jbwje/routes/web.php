@@ -28,4 +28,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/recepten', function () {
+    return "<h1>Alle recepten<h1>";
+});
+
+Route::get('/recepten/1', function () {
+    return "<h1>Pizza<h1>";
+});
+
+Route::get('/recepten/2', function () {
+    return "<h1>Pasta<h1>";
+});
+
+Route::get('/recepten/3', function () {
+    return "<h1>tosti<h1>";
+});
+
 require __DIR__.'/auth.php';
