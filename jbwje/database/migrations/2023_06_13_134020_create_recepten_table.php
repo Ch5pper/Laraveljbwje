@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('recepten', function (Blueprint $table) {
             $table->id();
-            $table->name();
+            $table->string('name');
+            $table->string('categorie');
+            $table->string('bereidingswijze')->nullable();
+            $table->string('bereidingstijd')->nullable();
+            $table->string('aantal personen')->nullable();
+            $table->string('rating')->nullable();
+            $table->string('Herkomt recept')->nullable();
+            $table->timestamps();
             
         });
     }
