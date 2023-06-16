@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ingredienten', function (Blueprint $table) {
             $table->id();
-            $table->integer("idRecept");
+            $table->foreignId("recept_id");
             $table->string('ingredient');
             $table->string('hoeveelheid');
             $table->timestamps();

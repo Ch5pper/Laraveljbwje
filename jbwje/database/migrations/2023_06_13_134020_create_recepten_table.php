@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('categorie');
-            $table->string('bereidingswijze')->nullable();
+            $table->longText('bereidingswijze')->nullable();
             $table->string('bereidingstijd')->nullable();
-            $table->string('aantal personen')->nullable();
+            $table->string('aantalpersonen')->nullable();
             $table->string('rating')->nullable();
-            $table->string('Herkomt recept')->nullable();
+            $table->string('Herkomtrecept')->nullable();
             $table->timestamps();
             
         });
