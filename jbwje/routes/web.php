@@ -15,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $html = "
+    
+    <h1>Recepten app<h1>
+    <div>
+        <a href='" . route('recepten.index') . "'>Alle recepten</a>
+
+    ";
+
+    return $html;
 });
 
 Route::get('/dashboard', function () {
@@ -30,18 +39,20 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/recepten', function () {
     return "<h1>Alle recepten<h1>";
-});
+})->name('recepten.index');
 
-Route::get('/recepten/1', function () {
-    return "<h1>Pizza<h1>";
-});
+Route::get('/recepten/{id}', function ($id) {
+    return "Recept " . $id;
+})->whereNumber('id');
 
-Route::get('/recepten/2', function () {
-    return "<h1>Pasta<h1>";
-});
+Route::get('/recepten/{name?}',function ($name = null){
 
-Route::get('/recepten/3', function () {
-    return "<h1>tosti<h1>";
-});
+    if($name){
+        return "Recept " . $name;
+    } else  {
+        return "alle recepten";
+    }
+
+})->whereAlphaNumeric('name');
 
 require __DIR__.'/auth.php';
