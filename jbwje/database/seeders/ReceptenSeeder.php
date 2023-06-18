@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Facades\DB;
 use App\Models\Recepten;
+use App\Models\ingredienten;
 use Faker\Factory as Faker;
 
 class ReceptenSeeder extends Seeder
@@ -16,13 +17,6 @@ class ReceptenSeeder extends Seeder
     public function run(): void
     {
 
-        $recepten = Recepten::all();
-        $faker = Faker::create();
-        
-        foreach($recepten as $recept){
-
-            
-
-        }
+        //
     }
 }
