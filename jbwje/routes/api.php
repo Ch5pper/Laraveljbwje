@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\ReceptenController;
+
+Route::get('/recepten', [ReceptenController::class, 'index']);
+Route::post('/recepten', [ReceptenController::class, 'store']);
+Route::get('/recepten/{id}', [ReceptenController::class, 'show']);
+Route::put('/recepten/{id}', [ReceptenController::class, 'update']);
+Route::delete('/recepten/{id}', [ReceptenController::class, 'destroy']);
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
