@@ -15,18 +15,6 @@ class IngredientenSeeder extends Seeder
      */
     public function run(): void
     {
-        $recepten = Recepten::all();
-        $faker = Faker::create();
-        
-        foreach($recepten as $recept){
-
-            $ingredient = [
-                'id' => $faker->id(),
-                'ingredient' => $faker->ingredient(),
-                'hoeveelheid' => $faker->hoeveelheid(),
-                'recept_id' => $recept->id
-            ];
-            ingredienten::created($ingredient);
+            //
     }
-}
 }
