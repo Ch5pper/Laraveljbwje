@@ -25,6 +25,7 @@ class ReceptenSeeder extends Seeder
             foreach(range(1,5) as $index){
                 $recept = [
                     'id' => $faker->id(),
+                    'name' => $faker->id(),
                     'recept_id' => $ingredient->id
                 ];
                 $recepten[] =  $recept;

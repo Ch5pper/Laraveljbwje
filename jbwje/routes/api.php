@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\IngredientenController;
 use App\Http\Controllers\API\ReceptController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,4 +28,6 @@ Route::delete('/recepten/{id}', [ReceptenController::class, 'destroy']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource('/recepten', ReceptController::class);
+Route::apiResource(
+    '/recepten', ReceptController::class,
+);

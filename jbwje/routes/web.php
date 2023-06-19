@@ -42,19 +42,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/recepten', function () {
-    return "<h1>Alle recepten<h1>";
-})->name('recepten.index');
 
-Route::get('/recepten', [ReceptenController::class, 'create'] )->name('recepten.index');
-Route::get('/recepten/create', [ReceptenController::class, 'create'] )->name('recepten.create');
-Route::get('/recepten/{id}', [ReceptenController::class, 'create'] )->name('recepten.show');
-Route::resource('/ingredienten', IngredientenController::class);
-Route::resources([
-    '/tags' => TagController::class,
-    '/tasks' => TaskController::class
-]);
-Route::resource('/activities', ActivityController::class)->only([
-    'create', 'store', 'edit', 'update', 'destroy'
-]);
 require __DIR__.'/auth.php';

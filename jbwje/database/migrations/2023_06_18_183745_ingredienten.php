@@ -14,8 +14,7 @@ return new class extends Migration
     {
         Schema::create('ingredienten', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("recept_id")->constrained(
-                table: 'recepten', indexName: 'id'
+            $table->foreignId("recept_id")->constrained('recepten'
             );
             $table->string('ingredient');
             $table->string('hoeveelheid');

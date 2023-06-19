@@ -3,47 +3,46 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Recepten;
+use App\Models\ingredienten;
 use Illuminate\Http\Request;
 
 class ReceptController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $recepten = Recepten::with('ingredienten')->get();
+
+        return response()->json($recepten);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $recept = Recepten::create($request->all());
+
+        return response()->json($recept, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $recept = Recepten::findOrFail($id);
+
+        return response()->json($recept);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $recept = Recepten::findOrFail($id);
+        $recept->update($request->all());
+
+        return response()->json($recept);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $recept = Recepten::findOrFail($id);
+        $recept->delete();
+
+        return response()->json(null, 204);
     }
 }

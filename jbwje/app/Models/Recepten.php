@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Recepten extends Model
 {
-    use HasFactory;
-
-
     protected $table = 'recepten';
-    
+    protected $fillable = ['name', 'bereidingswijze']; // Define the fillable fields
+
+    public function ingredienten()
+    {
+        return $this->hasMany(ingredienten::class);
+    }
 }
