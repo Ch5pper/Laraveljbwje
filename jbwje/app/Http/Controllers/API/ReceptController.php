@@ -12,7 +12,7 @@ class ReceptController extends Controller
     public function index()
     {
         $recepten = Recepten::with('ingredienten')->get();
-
+        
         return response()->json($recepten);
     }
 
